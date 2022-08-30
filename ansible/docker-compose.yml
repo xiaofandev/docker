@@ -4,7 +4,7 @@ services:
   master:
     container_name: ansible-master
     build: ./master
-    image: ansible-test:master
+    image: ansible-master
     ports:
       - 22:22
     networks:
@@ -12,21 +12,9 @@ services:
       - external_access
 
   slave1:
-    container_name: ansible-slave1
+    container_name: ansible-slave
     build: ./slave
-    image: ansible-test:slave
-    networks:
-      - internal_access
-
-  slave2:
-    container_name: ansible-slave2
-    image: ansible-test:slave
-    networks:
-      - internal_access
-
-  slave3:
-    container_name: ansible-slave3
-    image: ansible-test:slave
+    image: ansible-slave
     networks:
       - internal_access
 
