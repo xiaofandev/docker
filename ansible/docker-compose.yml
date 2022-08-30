@@ -11,12 +11,25 @@ services:
       - internal_access
       - external_access
 
-  slave1:
-    container_name: ansible-slave
+  node1:
+    container_name: ansible-node1
     build: ./slave
     image: ansible-slave
     networks:
       - internal_access
+
+  node2:
+    container_name: ansible-node2
+    image: ansible-slave
+    networks:
+      - internal_access
+  
+  node3:
+    container_name: ansible-node3
+    image: ansible-slave
+    networks:
+      - internal_access
+
 
 networks:
   internal_access:
