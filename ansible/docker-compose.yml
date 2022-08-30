@@ -1,0 +1,36 @@
+version: '3.7'
+
+services:
+  master:
+    container_name: ansible-master
+    build: ./master
+    image: ansible-test:master
+    ports:
+      - 22:22
+    networks:
+      - internal_access
+      - external_access
+
+  slave1:
+    container_name: ansible-slave1
+    build: ./slave
+    image: ansible-test:slave
+    networks:
+      - internal_access
+
+  slave2:
+    container_name: ansible-slave2
+    image: ansible-test:slave
+    networks:
+      - internal_access
+
+  slave3:
+    container_name: ansible-slave3
+    image: ansible-test:slave
+    networks:
+      - internal_access
+
+networks:
+  internal_access:
+    internal: true
+  external_access:
