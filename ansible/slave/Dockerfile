@@ -4,7 +4,7 @@ FROM centos:centos7
 RUN yum update -y
 
 # Install the requires package.
-RUN yum install -y net-tools.x86_64 openssh-server openssh-clients python sudo curl wget bash-completion openssl && yum clean all
+RUN yum install -y net-tools.x86_64 openssh-server openssh-clients python3.x86_64 sudo curl wget bash-completion openssl && yum clean all
 
 # Setting the root password
 RUN echo 'root:root' | chpasswd
