@@ -10,6 +10,8 @@ services:
     networks:
       - internal_access
       - external_access
+    volumes:
+      - inventory-vol:/etc/ansible
 
   node1:
     container_name: ansible-node1
@@ -30,8 +32,11 @@ services:
     networks:
       - internal_access
 
-
 networks:
   internal_access:
     internal: true
   external_access:
+
+volumes:
+  inventory-vol:
+    external: true
