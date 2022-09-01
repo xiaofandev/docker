@@ -14,7 +14,10 @@ services:
 
   node1:
     container_name: ansible-node1
-    build: ./slave
+    build: 
+      context: ./
+      dockerfile:  ./slave/Dockerfile
+
     image: ansible-slave
     networks:
       - ansible-net
