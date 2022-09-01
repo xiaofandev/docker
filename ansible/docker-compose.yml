@@ -8,8 +8,7 @@ services:
     ports:
       - 22:22
     networks:
-      - internal_access
-      - external_access
+      - ansible-net
     volumes:
       - inventory-vol:/etc/ansible
 
@@ -18,24 +17,23 @@ services:
     build: ./slave
     image: ansible-slave
     networks:
-      - internal_access
+      - ansible-net
 
   node2:
     container_name: ansible-node2
     image: ansible-slave
     networks:
       - internal_access
+      - ansible-net
   
   node3:
     container_name: ansible-node3
     image: ansible-slave
     networks:
-      - internal_access
+      - ansible-net
 
 networks:
-  internal_access:
-    internal: true
-  external_access:
+  ansible-net:
 
 volumes:
   inventory-vol:
