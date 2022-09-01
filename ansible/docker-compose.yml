@@ -10,7 +10,7 @@ services:
     networks:
       - ansible-net
     volumes:
-      - inventory-vol:/etc/ansible
+      - ansible-vol:/root
 
   node1:
     container_name: ansible-node1
@@ -35,5 +35,5 @@ networks:
   ansible-net:
 
 volumes:
-  inventory-vol:
+  ansible-vol:
     external: true
