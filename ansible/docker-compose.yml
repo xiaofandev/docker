@@ -23,7 +23,6 @@ services:
     container_name: ansible-node2
     image: ansible-slave
     networks:
-      - internal_access
       - ansible-net
   
   node3:
