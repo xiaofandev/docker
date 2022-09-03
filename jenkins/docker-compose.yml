@@ -49,6 +49,9 @@ networks:
 
 volumes:
   jenkins-docker-certs:
+    external: true
   jenkins-data:
+    external: true
   nexus-data:
+    external: true
 
